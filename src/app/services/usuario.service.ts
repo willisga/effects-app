@@ -17,4 +17,10 @@ export class UsuarioService {
       .get<User[]>(`${this.url}/users?per_page=6`)
       .pipe(map(response => response["data"]));
   }
+
+  getUser(idUser: number): Observable<User> {
+    return this.http
+      .get<User>(`${this.url}/users/${idUser}`)
+      .pipe(map(response => response["data"]));
+  }
 }
